@@ -4,14 +4,14 @@
     placeholder="Søg efter en sang"
     class="input input-xl input-ghost input-neutral"
     #searchBox
-    (keyup.enter)="onSongSearch(searchBox.value)"
+    (input)="onSongSearch(searchBox.value)"
   />
   <div
     class="m-2 w-96 ml-5 mr-5 flex items-center justify-center"
     *ngFor="let song of songResult()"
   >
     <div class="collapse collapse-arrow bg-base-100 border-base-300 border">
-      <input type="checkbox" />
+      <input type="radio" name="my-accordion-2" />
       <div class="collapse-title font-semibold">
         {{ song }}
       </div>

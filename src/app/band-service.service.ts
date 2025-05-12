@@ -9,19 +9,60 @@ export class BandServiceService {
 
   constructor() {
     let map: Map<string, string[]> = new Map<string, string[]>();
-    map.set('smells like teen spirit', ['bas', 'trommer', 'guitar']);
-    map.set('bohemian rhapsody', ['bas', 'trommer', 'guitar']);
-    map.set('imagine', ['bas', 'trommer', 'guitar']);
-    map.set('hotel california', ['bas', 'trommer', 'guitar']);
-    map.set('i will always love you', ['bas', 'trommer', 'guitar', 'fløjte']);
+    map.set('bohemian rhapsody', [
+      'vokal',
+      'klaver',
+      'elguitar',
+      'bas',
+      'trommer',
+    ]);
+    map.set('imagine', ['vokal', 'klaver', 'akustisk guitar']);
+    map.set('smells like teen spirit', ['vokal', 'elguitar', 'bas', 'trommer']);
+    map.set('hotel california', [
+      'vokal',
+      'akustisk guitar',
+      'elguitar',
+      'bas',
+      'trommer',
+    ]);
+    map.set('billie jean', ['vokal', 'bas', 'trommer', 'synthesizer']);
+    map.set('hey jude', ['vokal', 'klaver', 'bas', 'trommer', 'orkester']);
+    map.set('respect', ['vokal', 'klaver', 'trommer', 'horn']);
+    map.set('what’s going on', [
+      'vokal',
+      'bas',
+      'trommer',
+      'saxofon',
+      'guitar',
+    ]);
+    map.set('stairway to heaven', [
+      'vokal',
+      'akustisk guitar',
+      'elguitar',
+      'bas',
+      'trommer',
+      'fløjte',
+    ]);
+    map.set('rolling in the deep', [
+      'vokal',
+      'klaver',
+      'trommer',
+      'bas',
+      'guitar',
+    ]);
     this.instrumentMap.set(map);
 
     const songs = [
-      'Smells like teen spirit',
       'Bohemian Rhapsody',
       'Imagine',
+      'Smells Like Teen Spirit',
       'Hotel California',
-      'I Will Always Love You',
+      'Billie Jean',
+      'Hey Jude',
+      'Respect',
+      'What’s Going On',
+      'Stairway to Heaven',
+      'Rolling in the Deep',
     ];
     this.songs.set(songs);
   }
