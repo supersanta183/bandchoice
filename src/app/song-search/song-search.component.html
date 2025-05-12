@@ -1,0 +1,48 @@
+<div class="flex flex-col w-full items-center justify-center mt-5">
+  <input
+    type="text"
+    placeholder="Søg efter en sang"
+    class="input input-xl input-ghost input-neutral"
+    #searchBox
+    (keyup.enter)="onSongSearch(searchBox.value)"
+  />
+  <div
+    class="m-2 w-96 ml-5 mr-5 flex items-center justify-center"
+    *ngFor="let song of songResult()"
+  >
+    <div class="collapse collapse-arrow bg-base-100 border-base-300 border">
+      <input type="checkbox" />
+      <div class="collapse-title font-semibold">
+        {{ song }}
+      </div>
+      <ul class="list bg-base-100 rounded-box shadow-md collapse-content">
+        <li
+          class="list-row opacity-60 flex items-center justify-center"
+          *ngFor="let instrument of getInstrumentsForSong(song.toLowerCase())"
+        >
+          <button
+            class="btn btn-ghost tooltip tooltip-top"
+            [attr.data-tip]="'Vis noder for ' + instrument"
+            (click)="openModal(instrument, song)"
+          >
+            {{ instrument }}
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<dialog #modal1 class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">
+      Noder til sangen: "{{ selectedSong() }}" på {{ selectedInstrument() }}
+    </h3>
+    <div #score></div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
